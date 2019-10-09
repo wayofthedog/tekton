@@ -1,0 +1,17 @@
+   apiVersion: serving.knative.dev/v1alpha1
+   kind: Service
+   metadata:
+  
+     name: tekton
+     namespace: default
+     labels:
+       environment: sandbox
+       app: tekton
+   spec:
+     template:
+       spec:
+         containers:
+           - image: wayofthedog/tekton:latest
+             env:
+               - name: TARGET
+                 value: "Node.js v1"
